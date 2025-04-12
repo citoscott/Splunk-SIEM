@@ -26,7 +26,7 @@ This is by no means a comprehensive step-by-step of my process, but rather a few
 
 ## Network Diagram
 
-[![NetworkDiagram-ActiveDirectoryProject drawio](https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/f44ce545-f677-4006-8a65-b447b6d2978f)](https://imgur.com/ib3A0G1)
+![image](https://github.com/user-attachments/assets/b6374919-90d9-4131-bda0-b14602db5c8c)
 
 ## Table of Contents
 
