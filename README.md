@@ -76,26 +76,26 @@ Installed and configured Splunk Forwarder on ADDC01 and target-PC (Windows 10) t
 
 Installed Sysmon to enhance event logging capabilities.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/306160cf-69bd-4322-b2ee-50dbd73b66eb" width="700" />
+![image](https://github.com/user-attachments/assets/a6ebc509-6c1e-42cc-8dd9-71de538b00cc)
 
 ### Configuring Inputs for Splunk Forwarder:
 
 Created an inputs.conf file in C:\Program Files\SplunkUniversalForwarder\etc\system\local on ADDC01 and target-PC, configuring settings as per.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/7b973c10-11a6-4620-949e-bc233cf55736" width="700" />
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/dc816365-9ca2-4435-af25-8d3e7e35aece" width="700" />
+![image](https://github.com/user-attachments/assets/02f7be87-89b9-480d-bf1c-7d2ec3f41725)
+![image](https://github.com/user-attachments/assets/268c0406-55a8-4895-a701-7514c03345da)
 
 ### Restarting Splunk Forwarder Service:
 
 Restarted the Splunk Forwarder service on ADDC01 and set to log on as local system account.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/4aa87cdf-4e3e-49a8-a2fe-a0eae7de8f4f" width="700" />
+![image](https://github.com/user-attachments/assets/c20212e7-288e-4a9b-ba93-480a20d3a1da)
 
 ### Connecting to Splunk Web Interface:
 
 Accessed the Splunk server's web interface at port 8000, then created an index named endpoint as specified in the inputs.conf file. I repeated this process for both ADDC01 and target-PC to ensure the Splunk server receives events from both sources.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/fa26209e-7ad2-4136-a5f5-7ec7fba9c232" width="700" />
+![image](https://github.com/user-attachments/assets/eaf41b63-d39f-4c7b-99e7-48f63d10387f)
 
 ---
 
