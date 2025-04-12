@@ -56,7 +56,7 @@ This is by no means a comprehensive step-by-step of my process, but rather a few
 - Configured a static IP address for the Splunk server and defined a default route with the gateway 192.168.10.10.
 ```sudo nano /etc/netplan/00-installer-config.yaml```
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/99ee31d7-40c0-4739-8581-c6d72613b066" alt="Splunk server running in Oracle VirtualBox" width="635" />
+![image](https://github.com/user-attachments/assets/116866a8-7450-41d1-a864-7b63b19eac05)
 
 Apply the changes:
 ```sudo netplan apply```
@@ -70,7 +70,7 @@ Apply the changes:
 ### Setting Up Splunk Forwarder:
 Installed and configured Splunk Forwarder on ADDC01 and target-PC (Windows 10) to send data to the Splunk server as a receiving indexer.
 
-![2024-06-28 22_10_10-ADDC01  Running  - Oracle VM VirtualBox](https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/54bdd7fe-3954-4c2e-8613-6ec049293241)
+![image](https://github.com/user-attachments/assets/82174875-8894-4dfa-a315-da7de8180325)
 
 ### Installing Sysmon:
 
