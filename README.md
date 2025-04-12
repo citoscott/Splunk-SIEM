@@ -109,7 +109,7 @@ Promote ADDC01 to Domain Controller
 
 ![image](https://github.com/user-attachments/assets/ad505284-2217-4875-9d85-70dddc9012f9)
 
-I joined target_PC to the domain and tinkered around with users, groups and permissions. I used this script from Josh Madakor's video to create around 1000 users.
+I joined target_PC to the domain and tinkered around with users, groups and permissions. A custom Powershell script was then executed to populate Active Directory with 1000 users, with the script parsing the names list & creating users by the first letter of the first name and the last name.
 
 ![image](https://github.com/user-attachments/assets/17e12a8c-8c2b-4740-89c0-3d2c8dc7260b)
 ![image](https://github.com/user-attachments/assets/6b2a4d31-2144-4d91-94b1-7f845551ae6a)
