@@ -103,16 +103,16 @@ Accessed the Splunk server's web interface at port 8000, then created an index n
 
 Install Active Directory Domain Services on ADDC01
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/80c01684-787a-4639-8f61-a3a8ab7270a7" width="700" />
+![image](https://github.com/user-attachments/assets/4ae4f280-96f6-4be5-9f32-ff051dfed381)
 
 Promote ADDC01 to Domain Controller
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/39653cdf-11f8-4527-ac06-588629e50e05" width="700" />
+![image](https://github.com/user-attachments/assets/ad505284-2217-4875-9d85-70dddc9012f9)
 
 I joined target_PC to the domain and tinkered around with users, groups and permissions. I used this script from Josh Madakor's video to create around 1000 users.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/64f8e66c-9404-40de-bb38-5e15b0b4d69a" width="700" />
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/5501aaa0-120e-4540-8630-00087fb0f77d" width="700" />
+![image](https://github.com/user-attachments/assets/17e12a8c-8c2b-4740-89c0-3d2c8dc7260b)
+![image](https://github.com/user-attachments/assets/6b2a4d31-2144-4d91-94b1-7f845551ae6a)
 
 ---
 
@@ -120,18 +120,18 @@ I joined target_PC to the domain and tinkered around with users, groups and perm
 
 I used crowbar to launch a brute force dictionary attack on target_PC from the Kali Linux machine. I had enabled RDP on target_PC beforehand so this attack would be feasable.
 
-![2024-06-29 22_33_32-kali-linux-2024 1-virtualbox-amd64  Running  - Oracle VM VirtualBox](https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/bc6e4d08-5653-45e0-a549-00d88246d945)
+![image](https://github.com/user-attachments/assets/702ed5c2-43ee-4ad7-9e37-af9dd8a53783)
 
 After running the attack, we can see that Splunk recorded 42 events with event code 4265, which indicates failed login attempts. This corresponds to the 22 passwords in the wordlist I used for the attack, which was run twice.
 
 Among these, there are two events with event code 4264, representing successful login attempts. This outcome is expected since one of the passwords in the wordlist was of course correct.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/2d796524-390b-449e-86cc-615b9cad0b3a" width="700" />
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/643611dd-b8e9-41d4-9784-60ffa72060ae" width="600" />
+![image](https://github.com/user-attachments/assets/9ee0b899-a988-409f-a247-2fa2b2b97ba7)
+![image](https://github.com/user-attachments/assets/c3cbda96-b694-4161-851b-0ed241454218)
 
 Here we can see that the attack indeed came from the Kali machine at 192.168.10.250
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/2770fcbd-b06a-4ba2-8b40-10d6a2ca347f" width="600" />
+![image](https://github.com/user-attachments/assets/c2fddb32-9dba-449a-8a39-56d89ef411c9)
 
 ---
 
@@ -144,25 +144,26 @@ Before installing Atomic Red Team (ATR) on target_PC, I excluded the C: drive (w
 To allow PowerShell scripts to run without restrictions for the current user, I used the command:
 ```Set-ExecutionPolicy Bypass -Scope CurrentUser```
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/3df29cb5-77f4-4d34-8db9-e112b23f2c04" width="800" />
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/69ef5c78-2b1e-4ac4-82d3-2b66eef8e699" width="700" />
+![image](https://github.com/user-attachments/assets/ef8bd613-2f4c-4793-bc62-292cbefd04d9)
+![image](https://github.com/user-attachments/assets/d80423a2-6935-4b59-aedf-41177894af3a)
 
 Next, I installed ATR using the following commands:
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/853de60c-1d63-4a9b-b9a1-43e50401b827" width="800" />
+![image](https://github.com/user-attachments/assets/f45a5257-c796-402b-bf75-208a7b01ded9)
 
 Now we can view all the tests available in Atomic Red Team. Each test is named after the corresponding MITRE ATT&CK technique. For example, I ran the T1136.001 test, which corresponds to the "Create Account: Local Account" persistence technique in MITRE ATT&CK.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/189a3b58-e48d-426a-bfca-9e2ad1da5d1e" width="700" />
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/febce88b-103b-4330-ba3a-80458c62cd0d" width="500" />
+![image](https://github.com/user-attachments/assets/ae03652b-1642-41ad-b566-343fb54ed921)
+![image](https://github.com/user-attachments/assets/7a2eeddd-8b09-4634-ada3-3fac60511ec5)
+
 
 Running the test created a user called NewLocalUser, added it to the local administrators group, and finally deleted the user.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/9426fff8-1b57-4ae5-8d69-5aa5f1b00959" width="700" />
+![image](https://github.com/user-attachments/assets/b3db767e-0ae3-4c01-80b3-5e9cd46cbb3d)
 
 We see these events in Splunk.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/d9d4a3d4-a2ca-4542-bda1-e31a7db4472a" width="700" />
+![image](https://github.com/user-attachments/assets/a22d3a1b-b43b-4b8c-9934-efac7d765768)
 
 Here are the corresponding event codes:
 - 4798: A user's local group membership was enumerated.
@@ -172,11 +173,11 @@ Here are the corresponding event codes:
 - 4724: An attempt was made to reset an account's password.
 - 4726: A user account was deleted.
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/06f90944-7158-4630-b824-e3f742759c78" width="700" />
+![image](https://github.com/user-attachments/assets/1fece8c6-2615-4dff-895b-d25b59df7879)
 
 Below is the final event showing "NewLocalUser" being deleted
 
-<img src="https://github.com/PaulMiguelSec/Active-Directory-Lab/assets/174075754/feb94ab2-9222-4a1a-99b4-020f09bfda07" width="700" />
+![image](https://github.com/user-attachments/assets/19e5c522-9791-479c-9836-3f055916388f)
 
 ---
 
